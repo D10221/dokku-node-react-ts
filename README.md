@@ -1,6 +1,6 @@
 ## Dokku Node React Typescript monorepo project <h5>(seed|template|boilerplate|skeleton|scaffolding|recipe)?</h5>
 
-Project to publish to Dokku a NodeJs backed React app using Typescript.  
+a base project to publish to Dokku a NodeJs backed React app using Typescript.  
 
 ### Build config:  
 - .yarnrc
