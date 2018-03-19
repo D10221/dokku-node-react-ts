@@ -68,6 +68,10 @@ packages/svc:
     # publish
     git push dokku master    
 
+    # update from template
+    cd ../dokku-node-react-ts && npm run archive
+    mv archive.zip ../my-project/ && cd ../my-project && unzip -o archive.zip
+
 ## Dev Cycle:
 
 From project's root  
