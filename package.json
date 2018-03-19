@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "cd packages/ui && npm start",
     "build": "lerna run build",
-    "start": "cd packages/svc && npm run start"
+    "start": "cd packages/svc && npm run start",
+    "test": "cd packages/svc && npm test && cd ../../packages/ui && npm test"
   },
   "keywords": ["dokku", "node", "nodejs", "react", "typescript"],
   "author": "D10221",
