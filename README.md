@@ -22,11 +22,13 @@ a base project to publish to Dokku a NodeJs backed React app using Typescript.
             starts create-react-app dev-server
             TODO: start svc
             TODO: NODE_ENV=development
+        - test:
+            test svc & ui (Note: export CI=true for jest to run test instead of watching)
     - packages/\<package\>:
         - package.json
             - build (require: lerna)
-            - test  (todo:)
-            - start (dev)
+            - test
+            - start (dev)            
     
 - app.json
     predeploy script (required: dokku)
@@ -87,5 +89,4 @@ Create... when happy
     
 
 TODO:  
-- tests
 - .env
