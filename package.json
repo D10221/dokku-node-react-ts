@@ -14,7 +14,7 @@
     "dev": "cd packages/ui && npm start",
     "build": "lerna run build",
     "start": "cd packages/svc && npm run start",
-    "test": "cd packages/svc && npm test && cd ../../packages/ui && npm test",
+    "test": "cd packages/svc && npm test && cd ../../packages/ui && CI=true npm test",
     "archive": "git archive -o archive.zip master"
   },
   "keywords": ["dokku", "node", "nodejs", "react", "typescript"],
