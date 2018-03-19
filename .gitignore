@@ -10,3 +10,4 @@ yarn-error.log*
 *.development.env
 *.production.env
 *.log
+*.zip
