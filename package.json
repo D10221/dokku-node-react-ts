@@ -3,7 +3,7 @@
   "description": "Project template to publish to Dokku a NodeJs backed React app using Typescript",
   "main": "index.js",
   "scripts": {
-    "start": "yarn workspace @local/svc start",
+    "start": "cross-env NODE_ENV=production yarn workspace @local/svc start",
     "build": "yarn workspaces run build",
     "test": "cross-env CI=true yarn workspaces run test"
   },
