@@ -12,3 +12,5 @@ yarn-error.log*
 *.log
 *.zip
 *.lock
+**/.pnp/*
+.pnp.js

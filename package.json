@@ -1,31 +1,31 @@
 {
-  "name": "@local/project",
-  "version": "1.0.0",
   "private": true,
   "description": "Project template to publish to Dokku a NodeJs backed React app using Typescript",
   "main": "index.js",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "lerna": "^2.9.0",
-    "rimraf": "^2.6.2",
-    "typescript": "^2.7.2"
-  },
   "scripts": {
-    "dev": "cd packages/ui && npm start",
-    "build": "lerna run build",
-    "start": "cd packages/svc && npm run start",
-    "test": "cd packages/svc && npm test && cd ../../packages/ui && CI=true npm test",
-    "archive": "git archive -o archive.zip master"
+    "start": "yarn workspace @local/svc start",
+    "build": "yarn workspaces run build",
+    "test": "cross-env CI=true yarn workspaces run test"
   },
-  "keywords": ["dokku", "node", "nodejs", "react", "typescript"],
+  "keywords": [
+    "dokku",
+    "node",
+    "nodejs",
+    "react",
+    "typescript"
+  ],
   "author": "D10221",
   "license": "MIT",
   "workspaces": [
-    "packages/*"    
+    "packages/svc",
+    "packages/ui"
   ],
   "engines": {
-    "node": ">=8.9.0",
-    "yarn": ">=1.3.2",
-    "npm": ">=5.7.1"
+    "node": ">=14.0.0",
+    "yarn": ">=1.22.5",
+    "npm": ">=6.14.7"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2"
   }
 }

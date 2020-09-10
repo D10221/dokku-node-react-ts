@@ -1,33 +1,25 @@
-import * as path from "path";
-import * as dotenv from "dotenv";
+import path from "path";
+import dotenv from "dotenv";
 dotenv.config({
   path: path.join(__dirname, `../.env.${process.env.NODE_ENV || "development"}.env`)
 })
-import * as express from "express";
-import * as logger from "morgan";
-// import * as cookieParser from "cookie-parser";
-import * as bodyParser from "body-parser";
-import * as helmet from "helmet";
-import errorHandler from "./error-handler";
+import express from "express";
+import logger from "morgan";
+import helmet from "helmet";
 /** */
 const app = express();
 /** Middleware */
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false
+}));
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-app.use(errorHandler);
 /** Routes */
-const publicDir = path.join(__dirname, process.env.PUBLIC_DIR|| "../../ui/build");
-app.get("/", (_, response) => {
-  response.sendFile(path.resolve(publicDir, "index.html"))
-});
+const publicDir = path.resolve(__dirname, process.env.PUBLIC_DIR || "../../ui/build");
 app.use("/", express.static(publicDir));
 /** Start  */
 const port = Number(process.env.PORT || "5000");
 app.listen(
-  port, (error: any) => {
+  port, (error?: any) => {
     if (error) {
       console.error(error && error.message ? error.message : JSON.stringify(error));
       process.exit(-1);

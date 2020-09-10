@@ -2,37 +2,6 @@
 
 a base project to publish to Dokku a NodeJs backed React app using Typescript.  
 
-### Build config:  
-- .yarnrc
-    workspaces-experimental true (required: yarn)
-- lerna.json
-    workspaces (required: lerna)
-- package.json 
-    - private (required yarn/workspaces)
-    - workspaces (required: yarn)
-    - dependencies (required: dokku)
-    - devDependencies (ignored: dokku)
-    - engines (required:  react/typescript)
-    - scripts 
-        - build (required: typescript)  
-            build svc && ui with lerna 
-        - start (required: dokku)  
-            starts dokku app 
-        - dev
-            starts create-react-app dev-server
-            TODO: start svc
-            TODO: NODE_ENV=development
-        - test:
-            test svc & ui (Note: export CI=true for jest to run test instead of watching)
-    - packages/\<package\>:
-        - package.json
-            - build (require: lerna)
-            - test
-            - start (dev)            
-    
-- app.json
-    predeploy script (required: dokku)
-
 ### Structure:
 
 packages/ui:   
